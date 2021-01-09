@@ -11,12 +11,20 @@ with open(csvpath) as csvfile:
 
     csvreader = csv.reader(csvfile, delimiter=',')
 
-    print(csvreader)
+    # print(csvreader)
 
     # Read the header row first (skip this step if there is no header)
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+    # print(f"CSV Header: {csv_header}")
 
     # Read each row of data after the header
+    # for row in csvreader:
+    #     print(row)
+
+    unique_dates = []
     for row in csvreader:
-        print(row)
+        if row[0] not in unique_dates:
+            unique_dates.append(row[0]) 
+
+
+print(len(unique_dates))
