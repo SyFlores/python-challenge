@@ -15,6 +15,10 @@
   - Need to find a practical way to output lines of output from one print statement
   - Can use an f string format in combination with opening and closing triple quotes “”” to make this formatting much easier
     - Source: Stackoverflow [Comment](https://stackoverflow.com/questions/34980251/how-to-print-multiple-lines-of-text-with-python) by Miklos Horvath
+- How to create a text file and export our analysis to that file
+  - We need to export our 'analysis' string variable to a file automatically
+  - We can use the 'os' module to set up a more dependable file path
+    - Source: How to Create a Text File [section](https://www.guru99.com/reading-and-writing-files-in-python.html#1)
 
 ### Collaborations
 - No collaborations
