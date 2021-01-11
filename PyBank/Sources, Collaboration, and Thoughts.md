@@ -1,0 +1,55 @@
+### Sources
+- Conditional value – one thing is not in another
+  - Writing a conditional check such that the date doesn’t exist in our date list before adding it
+  - This way, we don’t get duplicates.
+    - Source: Stackoverflow [Top Answer](https://stackoverflow.com/questions/10406130/check-if-something-is-not-in-a-list-in-python)
+- How to add a value to a list
+  - Wanted to double check the syntax for adding values to a list
+    - Source: Used first [example](https://www.datacamp.com/community/tutorials/python-list-methods?utm_source=adwords_ppc&utm_campaignid=1565261270&utm_adgroupid=67750485268&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=&utm_creative=295208661502&utm_targetid=aud-517318241987:dsa-429603003980&utm_loc_interest_ms=&utm_loc_physical_ms=9031238&gclid=CjwKCAiAxeX_BRASEiwAc1QdkVQl6aS2ZMJ5fbBpEHeS1Kiuv_UZXj_o1J4ptqJ7cH44B6Ri17FKCRoCkd8QAvD) as reference
+- How to read data? Work around the row by row limitations
+  - Problem as it can be frustrating doing offsets as required in calculating the difference between months
+    - This is largely circumnavigated by using the Pandas module
+  - Read in data as hard lists to be placed into a dictionary
+    - Source: Stackoverflow [Comment](https://stackoverflow.com/questions/46965192/python-how-can-i-find-difference-between-two-rows-of-same-column-using-loop-in) by Hetal
+- Comment multiple lines of output
+  - Need to find a practical way to output lines of output from one print statement
+  - Can use an f string format in combination with opening and closing triple quotes “”” to make this formatting much easier
+    - Source: Stackoverflow [Comment](https://stackoverflow.com/questions/34980251/how-to-print-multiple-lines-of-text-with-python) by Miklos Horvath
+
+### Collaborations
+- No collaborations
+
+### Thoughts
+- What is being asked?
+  - Make a repository and clone it locally
+    - This will require a syncing with bash
+  - Read in files
+    - Make sure this is done from a local repo that’s synced to GitHub so it’ll be replicable
+  - Return the number of unique values in the first column
+  - Return the average change in the first column
+- Pseudocode
+  - Unique values in a list. There are two possible solutions:
+    - There exists a function that dedupes the values in a column and we can then take the length of the that column/list
+      - Looks like Pandas can do this easily… come back to this option later
+    - Loop through each row
+      - Add the date value to a running list if it meets the following condition
+        - Date NOT IN RunningList
+      - If the condition is met, append that value to the list
+      - Finally, use len() to output the number of unique values in the list
+  - Average change
+    - Calculate the difference and store them in a list
+    - Then divide by the length of that list. This should be one less than number of differences which should be one less than the number of months (86).
+    - Loop through each row
+      - Take the “row” and find a way to use “row” + 1 to perform the calculation: ROW[“row” + 1] - ROW[“row”]
+      - Then we add that into a tracking list
+        - This should only run under the condition if ROW[“row” + 1] exists
+  - Dictionary
+    - Chose to create dictionaries to make referencing these values more flexible
+      - Make lists from each column and read them into a “Date” and “Profit/Losses” dictionary
+    - Used this to change how we loop to find and create a list of differences
+  - Matching the date to the min and max
+    - We need to grab the index at which the min and max changes happen
+      - Use this integer to specify the index in the budget[“Date”] dictionary
+    - Add 1 to the index
+      - The index of the diffs are lined up to correspond with the starting month, so adding one to the index will change the reference in budget[“Date”] to the closing month
+      - We want this as the month specified should reflect the changes that have just happened
