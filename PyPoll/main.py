@@ -1,7 +1,11 @@
 import os
 import csv
 
-csvpath = os.path.join('..', 'PyPoll', 'election_data_full.csv')
+# Full file too large to upload to GitHub
+# Alter the csv file path if you would like to run on a more complete data set
+csvpath = os.path.join('..', 'PyPoll', 'election_data.csv')
+txtpath = os.path.join('..', 'PyPoll', 'election_results.txt')
+
 
 with open(csvpath) as csvfile:
 
@@ -81,3 +85,8 @@ Winner: {winner}
 election_results = results1 + results2 + results3
 
 print(election_results)
+
+# Create, export and close a text file with our analysis
+text_file = open(txtpath, 'w+')
+text_file.write(election_results)
+text_file.close()
