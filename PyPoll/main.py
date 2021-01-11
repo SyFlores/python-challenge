@@ -14,8 +14,16 @@ with open(csvpath) as csvfile:
 
     vote_count = 0
 
+    cand_list = []
+
     # Read each row of data after the header
     for row in csvreader:
+        # Quick incr for vote count
         vote_count += 1
 
+        # Feed unique candidates into a list
+        if row[2] not in cand_list:
+            cand_list.append(row[2])
+
 print(str(vote_count))
+print(cand_list)
