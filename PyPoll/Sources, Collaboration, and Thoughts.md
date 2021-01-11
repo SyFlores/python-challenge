@@ -1,5 +1,8 @@
 ### Sources
-- 
+- How to convert a list into a dictionary
+  - The best way I could think of to naturally refer to nested values (apart from creating an array) is with a dictionary
+  - Used the guts in a function I found as a guide for the template I wanted to create
+    - Source: [Method #1](https://www.geeksforgeeks.org/python-convert-a-list-to-dictionary/)
 
 ### Collaborations
 - 
@@ -17,3 +20,8 @@
   - Use that list to run conditionals in a loop to update count variables for each
   - Use a loop to autocreate a dictionary
   - Results should also be printed from a loop
+  - Once you iterate through a csvrader, you will have to create a separate with open() statement
+    - Ran into a lot of headaches trying to iterate throught the csv multiple times
+    - Necessary because we needed to iterate through once to get the unique candidates and convert list into a dictionary once done
+    
+  
