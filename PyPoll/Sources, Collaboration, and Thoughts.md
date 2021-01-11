@@ -5,7 +5,7 @@
     - Source: [Method #1](https://www.geeksforgeeks.org/python-convert-a-list-to-dictionary/)
 
 ### Collaborations
-- 
+- No collaborations
 
 ### Thoughts
 - What is being asked?
@@ -23,5 +23,6 @@
   - Once you iterate through a csvrader, you will have to create a separate with open() statement
     - Ran into a lot of headaches trying to iterate throught the csv multiple times
     - Necessary because we needed to iterate through once to get the unique candidates and convert list into a dictionary once done
-    
-  
+  - Since the middle part of the output is needs a for loop to read, we can stitch together different parts of the output together
+    - Be mindful of how the triple-quotes f-string treats new lines, in order to get the exact format
+    - Stitching everything together into one variable will make the export process much easier.
