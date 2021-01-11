@@ -50,8 +50,23 @@ with open(csvpath) as csvfile:
         PandL_Diff.append(budget["Profit/Losses"][i] - budget["Profit/Losses"][i-1])
 
     avg_PandL_Diff = sum(PandL_Diff)/len(PandL_Diff)
-    
+
+    max_change = max(PandL_Diff)
+    min_change = min(PandL_Diff)
+
+    #
+    date_max_change = budget["Date"][PandL_Diff.index(max_change) + 1]
+    date_min_change = budget["Date"][PandL_Diff.index(min_change) + 1]
+
 # Output - Data Summary
-print(len(unique_dates))
-print(total_value)
-print(round(avg_PandL_Diff))
+# Using triple quotes and f string to create a more transparent output format
+analysis = f"""
+Financial Analysis
+----------------------------
+Total Months: {len(unique_dates)}
+Total: ${total_value}
+Average Change: ${round(avg_PandL_Diff,2)}
+Greatest Increase in Profits: {date_max_change} (${max_change})
+Greatest Decrease in Profits: {date_min_change} (${min_change})
+"""
+print(analysis)
