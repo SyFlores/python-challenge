@@ -1,11 +1,7 @@
 import os
 import csv
 
-
-
-# Update this when you get your local repo syncing
-# Doing this here to avoid accidentally deletin anything
-csvpath = os.path.join('..', 'PyPoll', 'election_data.csv')
+csvpath = os.path.join('..', 'PyPoll', 'election_data_full.csv')
 
 with open(csvpath) as csvfile:
 
@@ -13,10 +9,13 @@ with open(csvpath) as csvfile:
 
     print(csvreader)
 
-    # Read the header row first (skip this step if there is no header)
+    # Read the header row first
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+
+    vote_count = 0
 
     # Read each row of data after the header
     for row in csvreader:
-        print(row)
+        vote_count += 1
+
+print(str(vote_count))
