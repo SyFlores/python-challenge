@@ -6,6 +6,7 @@ import csv
 # Update this when you get your local repo syncing
 # Doing this here to avoid accidentally deletin anything
 csvpath = os.path.join('..', 'PyBank', 'budget_data.csv')
+txtpath = os.path.join('..', 'PyBank', 'financial_analysis.txt')
 
 with open(csvpath) as csvfile:
 
@@ -70,3 +71,8 @@ Greatest Increase in Profits: {date_max_change} (${max_change})
 Greatest Decrease in Profits: {date_min_change} (${min_change})
 """
 print(analysis)
+
+# Create, export and close a text file with our analysis
+text_file = open(txtpath, 'w+')
+text_file.write(analysis)
+text_file.close()
